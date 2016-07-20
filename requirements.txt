@@ -8,6 +8,7 @@ rtree
 imposm
 decorator
 webtest
+psycopg2
 -e git://github.com/terranodo/mapproxy.git@addGeopackageAutoconfig#egg=mapproxy
 -e git://github.com/terranodo/django-mapproxy.git@master#egg=django-mapproxy
 -e git://github.com/terranodo/osm-extract.git@master#egg=osm-extract

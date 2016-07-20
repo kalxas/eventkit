@@ -53,7 +53,15 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': os.path.join(LOCAL_ROOT, 'development.db'),
-    }
+    },
+   'datastore' : {
+        'ENGINE': 'django.contrib.gis.db.backends.postgis',
+        'NAME': 'osgeo_importer_test',
+        'USER' : 'osgeo',
+        'PASSWORD' : 'osgeo',
+        'HOST' : 'localhost',
+        'PORT' : '5432',
+     }
 }
 
 # Note that Django automatically includes the "templates" dir in all the
@@ -82,3 +90,8 @@ CELERY_ALWAYS_EAGER = False
 LAYER_PREVIEW_LIBRARY="OL3"
 
 USE_DJMP_FOR_ALL_LAYERS = False
+
+OSGEO_DATASTORE = 'datastore'
+OSGEO_IMPORTER_GEONODE_ENABLED = True
+LOGGING['loggers']['osgeo_importer'] = {"handlers": ["console"], "level": "DEBUG"}
+DATABASE_ROUTERS = ['osgeo_importer_prj.dbrouters.DefaultOnlyMigrations']
